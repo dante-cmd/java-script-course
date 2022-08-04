@@ -1,0 +1,12 @@
+{
+  "name": "something",
+  "version": "1.0.0",
+  "description": "somess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dante",
+  "license": "ISC",
+  "type": "module"
+}

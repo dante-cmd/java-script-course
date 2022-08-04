@@ -1,0 +1,79 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "# Node.js"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.\r\n> Runtime describes software/instructions that are executed while your program is running\r\n\r\nIt is a way to run code of java script on pc. This traslate the js language to code thta the pc can execute."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Install\r\n* Nodejs.org> download `For the Most Users` > continue and continue...\r\n* In `vs code` \r\n  * We can install node.JS notebook and run the code here  or we can create some files `.js` and in the current directory (where is the files `js`) we run the code in the terminal `node nameFile.js` "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function divide(x, y) {\r\n    if (y == 0) {\r\n        console.log(\"Division by zero\");\r\n    }\r\n    else {\r\n        return x/y;\r\n    }\r\n}\r\nconsole.log(divide(80, 0))"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Division by zero",
+                                "undefined",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Own Modules\r\n\r\n* "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const Math = require('./node.js');"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}

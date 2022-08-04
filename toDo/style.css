@@ -1,0 +1,12 @@
+.div-made {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 70px;
+    padding: 10px;
+    margin: 10px 0;
+}
+

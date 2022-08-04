@@ -1,0 +1,1183 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "<div style=\"display: flex; justify-content: space-between;width:100%; height:120px;align-items: center; padding:20px; box-sizing:border-box;\">\r\n    <h1 style=\"margin:0;padding:0;\" >JavaScript - Programming</h1>\r\n    <img src=\"https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg\" \r\nalt=\"JavaScript.log\" style=\"height:110px;margin:0;passing:0;\">\r\n</div>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "JavaScript (JS) is a lightweight, interpreted, or `just-in-time` compiled programming language with `first-class` functions.\r\n\r\n> `just-in-time` is a way of executing computer code that involves compilation during execution of a program (at run time) rather than before execution.\r\n\r\n> `first-class` A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions\r\n\r\n* JavaScript Can Change HTML Attribute Values\r\n* In HTML, JavaScript code is inserted between `<script>` and `</script>` tags.\r\n* Scripts can be placed in the `<body>`, or in the `<head>` section of an HTML page, or in both."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Output\r\n\r\n4 ways to display the content, `element.innerHTML`, `document.write()`, `windows.alert()` and `consol.log()`\r\n\r\n**By Console** (This is the most used)\r\n* This is visualized in the `browser`'s console\r\n* Chrome > right click > inspect> console\r\n    * `console.log(10)` => print 10 \r\n\r\n**By element.innerHTML**\r\n* This is visualized into html document (This is part of DOM)\r\n    ```js\r\n    function changeText(){\r\n                var main = document.getElementById('main');\r\n                main.innerText = 'Hello World';\r\n            }\r\n    ```\r\n**By document.write()**\r\n* This is visualized into html document, but this delete all elements of the document\r\n    ```js\r\n    function writeText(){\r\n                document.write('Hello World');\r\n            }\r\n    ```\r\n**By windows.alert()**\r\n* This is like popups\r\n    ```js\r\n        function helloAlert(){\r\n            alert('Hello World');\r\n            }\r\n    ```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(10)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "10",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## Script"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Script or program is set of instructions that we sent to browser to it executed them.\n\n* Steps to build a script\n  1. Defining the *goals*\n  2. break into a series of tasks that have to be performed in order achieve the goals\n     * Here appear *pseudo script-code* and the *flowchart*\n\nIn JavaScript each line of code is called `statement` \n\nThe statements are executed, one by one, in the same order as they are written.\n\nthe statements are composed by :\n  * Values (e.g `5`), \n  * Operators (e.g. `+` in `5 + 9`), \n  * Expressions (`5 + 9`), \n  * Keywords (e.g. `let` in `let x = 5`)\n  * Comments (`//` - `single comment` or `/* */` - `multi comment`). It will not exceute by `JS`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* `semicolon` `;` is used to separate ech line of code\n* `white space`.  `JS` ignores multiples white spaces\n* If the lenght of the code is > 80 the programers usually break the line. \n   * The best place to break it is after an operator\n* code block are all inside of `{}`. This appear in function, if-statement and other.\n* `JS` Keywords (to identify the JavaScript action to be performed)\n  * `var`, `let`, `const`, `if`, `switch`, `for`, `function`, `return`, `try`\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* when the browser come across a `<script>` element, it stop to load the script and then checks to see if it need to do something. "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Assingnament/Declaring\r\n\r\n`let, var`(old version), `const`. To create variables. They are containers for storing data\r\n* `let my_mood = \"soft\";` Assign the value \"soft\" to variable `my_mood`. `=` is the assignament operator. \r\n* `+, -, *, /` are aritmetic operator\r\n* `let my_mood`; This is a `declaration`. Until now the value of `my_mood` is `undefined`. Then we must be assinged it before using, so `my_mood = \"soft\"`\r\n* You can declare many variables in one statement.\r\n  * `let myCar, myLaptop, myTable;`\r\n  * `myCar = \"Lexus, myLaptop = \"Lenovo\", myTable = \"Any\";`\r\n* `var` can be re-declared, but `let` and `const` not\r\n> It's a good programming practice to declare all variables at the beginning of a script.\r\n\r\n**There are differences between `var` and `let`**\r\n* `var` is global scope. Can be access outside of the `block scope {}`\r\n* `let` has the `block scope {}`.\r\n* But if they are defined inside a function then they are `local variables`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "var cluster = \"Low Income\", salary = 10000;\r\n\r\nif (salary > 6000) {\r\n    var cluster = \"High Income\";\r\n    console.log(cluster);\r\n};\r\nconsole.log(cluster);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "High Income",
+                                "High Income",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let cluster = \"Low Income\", salary = 10000;\r\n\r\nif (salary > 6000) {\r\n    let cluster = \"High Income\";\r\n    console.log(cluster);\r\n};\r\nconsole.log(cluster);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "High Income",
+                                "Low Income",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "var cluster = \"Low Income\", salary = 10000;\r\nfunction classification(salary){\r\n    if (salary > 6000) {\r\n        var cluster = \"High Income\";\r\n        console.log(cluster);\r\n    };\r\n};\r\nclassification(salary);\r\nconsole.log(cluster);\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "High Income",
+                                "Low Income",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "**`const`**  \r\n* `const myCool = 50;`\r\n* It can not be redeclared (`const myCool = 50;`)\r\n* It can not be reassigned (`myCool = 50;`)\r\n* It has `block scope`\r\n  * That means if some code are declared and assigned inside `{}` this code only exist inside the `block`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const myScore = 20;\r\nfunction funcScore(){\r\n    const myScore = 15;\r\n    console.log(myScore);\r\n  }\r\nfuncScore()\r\nconsole.log(myScore);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "15",
+                                "20",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* Constant `Objects` and `Arrays`\r\n  \r\n* we can not reassigned (`myList = [10, 5]` or `myObject = {\"Gender\": \"Female\"}`)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const myList = [80, 5, 0];\r\nconsole.log(myList);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 80, 5, 0 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "myList[0] = 90;\r\nconsole.log(myList);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 90, 5, 0 ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const myObject = {\"Name\": \"Fabio\", \"Age\": 50};\r\nconsole.log(myObject);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "{ Name: 'Fabio', Age: 50 }",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "myObject.Name = \"Paul\";\r\nconsole.log(myObject);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "{ Name: 'Paul', Age: 50 }",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Operators\n\n* `+, -, *, /, %, **, ++, --`\n  * Here `++` can be explained with an example. Those are similar.\n\n    ```js\n    let x = 5; \n    x = x + 1;\n    ```\n    ```js\n    let x = 5; \n    x+=1;\n    ```\n    ```js\n    let x = 5; \n    x++;\n    ```\n  * For `--` is similar\n* `let x = 8 + 9 + \"d\"`, here the value of x is `\"89d\"`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* Assignament Operator\n    ```JS\n    let x = 5;\n    x = x + 2\n    // is similar to x+=2\n    // the same happen with remaining operator\n    ```\n* Comparation Operator\n\n    `== (equal to), === (equal type and equal value), != (not equal), !== (not equal value or not equal type), >, <, >=, <=`\n* Logical Operator\n\n  `&&` (and)\n\n  `||` (or)\n\n  `!` (not)\n\n* Type Operator\n\n  `typeof` (return the type of the variable).\n  <!-- `instancetype` (return the type oof the variable). -->"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(\r\n    ' type of 10 :', typeof(10),'\\n',\r\n    'type of true :', typeof(true), '\\n',\r\n    'type of The Cars :', typeof('The Cars'), '\\n',\r\n    'type of [100, 200, 300] :', typeof([100, 200, 300]), '\\n',\r\n    'type of {\"name\":\"Tina Charles\"} :', typeof({\"name\":\"Tina Charles\"})\r\n    )"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                " type of 10 : number ",
+                                " type of true : boolean ",
+                                " type of The Cars : string ",
+                                " type of [100, 200, 300] : object ",
+                                " type of {\"name\":\"Tina Charles\"} : object",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Identifiers / Names\n\nAll `JavaScript variables` must be identified with `unique names`.\n\nThe rules for *legal names*. A JavaScript name must begin with:\n* A letter `[a-z] [A-Z]`\n* A dollar sign `$`\n* underscore `_`\n\n### JavaScript is Case Sensitive\n\n* `myName` is different to `myname`\n\n### JavaScript and Camel Case\n\n* `Hyphens` (`first-name`) are not allowed in JavaScript. In HTML and CSS are.\n* `Under Score` (`first_name`)\n* `Upper Camel Case` (`FirstName`)\n* `Lower Camel Case` (`firstName`). It the most used."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Expressions\n\n* `my_mood + \" hard\";` This is an `expression`, and the result is the called `evaluation`\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Function\r\n``` \r\nfunction name_function(args){\r\n    ...\r\n    return something\r\n}\r\nname_funtion(args);\r\n```\r\n\r\n* The function can have `return` or not\r\n  * If there is, this can be a single value, like `5`, or multiple like `[5, 2]`\r\n* `name_funtion(args);` is used to execute\r\n* After return we can't pass consol.log() to print something. The return point out the end of the function.\r\n* The variables that we define inside of `...` are called: `local variables`, but the variables out the function are called `global variables`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Object\r\n\r\n`{\"key1\":\"value1\", \"key2\": nameFunc(), ... }`\r\n\r\n* `key1` is called `property`\r\n* `key2` is is called `method`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let myObject = {\r\n    \"Name\": \"Fabio\", \r\n    \"Age\": 50, \r\n    \"Height\": 1.8,\r\n    \"Weight\": 80,\r\n    \"Hobbies\": [\"Reading\", \"Coding\", \"Sports\"],\r\n    \"Ratio-Weight-Height\": function () {\r\n        return this.Weight/this.Height;\r\n    }\r\n};\r\n\r\nconsole.log(myObject[\"Ratio-Weight-Height\"]());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "44.44444444444444",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// reassing the age to the object\r\nmyObject['Age'] = 60;\r\nconsole.log(myObject);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "{",
+                                "  Name: 'Fabio',",
+                                "  Age: 60,",
+                                "  Height: 1.8,",
+                                "  Weight: 80,",
+                                "  Hobbies: [ 'Reading', 'Coding', 'Sports' ],",
+                                "  'Ratio-Weight-Height': [Function: Ratio-Weight-Height]",
+                                "}",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### This \r\n* `keyword`\r\n* In above this refer to `myObject`, this is the reason that it can access to properties\r\n* In the event it refer at teh element that produce the event. (more later)\r\n\r\n**Event** (something happened). e.g. an HTML button was clicked\r\n\r\n* Common HTML Events\r\n  * `onchange` - An HTML element has been changed\r\n  * `onclick` - The user clicks an HTML element\r\n  * `onmouseover` - The user moves the mouse over an HTML element\r\n  * `onmouseout` - The user moves the mouse away from an HTML element\r\n  * `onkeydown` - The user pushes a keyboard key\r\n  * `onload` - The browser has finished loading the page\r\n \r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<div class=\"but\">\r\n    <input type=\"button\" value = \"Insert Text\" onclick=\"get()\">\r\n</div>\r\n<div id=\"go-text\">\r\n</div>\r\n<script>\r\n    function get(){\r\n        document.getElementById(\"go-text\").innerHTML = \"Hello World\";\r\n    }\r\n</script>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<div class=\"but\">\r",
+                                "    <input type=\"button\" value = \"Insert Text\" onclick=\"get()\">\r",
+                                "</div>\r",
+                                "<div id=\"go-text\">\r",
+                                "</div>\r",
+                                "<script>\r",
+                                "    function get(){\r",
+                                "        document.getElementById(\"go-text\").innerHTML = \"Hello World\";\r",
+                                "    }\r",
+                                "</script>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### String\r\n storing and manipulating text"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let nameCar = \"Audi\";\r\nconsole.log(`nameCar is the type ${typeof(nameCar)} and has ${nameCar.length} characters`);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "nameCar is the type string and has 4 characters",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Escape character `\\`, `\\b`, `\\t`, `\\n`\r\n* write => console\r\n* `\\'` => `'`\r\n* `\\\"` => `\"`\r\n* `\\\\` => `\\`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let nameCar = \"It\\'s my Audi\"\r\nconsole.log(nameCar);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "It's my Audi",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Breaking\r\n\r\nWe can use `\\` to  breaking the string to the next line.\r\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let msg = \"I'm Programmer and \\\r\nI'm a Web Developer\";\r\nconsole.log(msg);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "I'm Programmer and I'm a Web Developer",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Methods"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let msg = \"I\\'m programmer\"\r\nconsole.log(msg.length);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "14",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// JavaScript counts positions from zero\r\nconsole.log(msg.slice(1,5));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "'m p",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// count from the beginning of the string\r\nconsole.log(msg.slice(0, 10));\r\n// count from the last position of the string\r\nconsole.log(msg.slice(-10));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "I'm progra",
+                                "programmer",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// 4 point out the index to capture the string \r\n// take the remaining string since the index\r\nconsole.log(msg.substring(4));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "programmer",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// it case sensitive\r\n// return a new string\r\n// only replace the first occurrence\r\nlet msgNew = msg.replace('programmer', 'Developer');\r\nconsole.log(msgNew);\r\n// solution with RegExp (later)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "I'm Developer",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(msgNew.toLowerCase())\r\nconsole.log(msgNew.toLocaleUpperCase())"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "i'm developer",
+                                "I'M DEVELOPER",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let career = \"Web developer\";\r\nlet careerNew = \"Data Scientist\";\r\nconsole.log(career.concat(\" and \",careerNew));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Web developer and Data Scientist in New York",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "let pay = \"   $5\"\r\nconsole.log(pay.trim());"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "$5",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// fill of zeros where the string is shorter than 5 characters\r\nlet idCode = \"5\"\r\nconsole.log(idCode.padStart(5, \"0\"));\r\nlet idCodeNew = \"55\"\r\nconsole.log(idCodeNew.padStart(5, \"0\"));\r\n// similar for padEnd"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "00005",
+                                "00055",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// The charAt() method returns the character at a specified index (position) in a string\r\nlet idCode = \"1005\"\r\nconsole.log(idCode.charAt(0));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "1",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "let fruits = 'apple banana cherry';\r\nconsole.log(fruits.split(' '));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'apple', 'banana', 'cherry' ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Array\n\n* `const todos = ['Cars', 'Mouse', 'Laptop', 'Tv'];` so we create an array. In this case  we are saying that is a constante, so this will not change\n* `object_array.lenght` is the lenght of the list.\n* `object_array.reduce` is used to compute something. In this case the sum of the values"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "%%HTML\r\n<html lang=\"en\">\r\n<head>\r\n    <title>Document</title>\r\n</head>\r\n<body>\r\n    <div id=\"main\"></div>\r\n    <script>\r\n    function average(list){\r\n        let result = list.reduce((a, b) => a + b) / list.length;\r\n        return result\r\n    };\r\n    const numbers = [1, 2, 3, 4, 5];\r\n    average(numbers);\r\n    </script>    \r\n</body>\r\n</html>"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### filter\n\n* `function_name`\n* `array.filter(function_name)`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function update(data) {\r\n  return data[\"id\"] != 1001;\r\n}\r\nlet list = [\r\n  { id: 1001, name: \"Dante\" },\r\n  { id: 1002, name: \"Kora\" },\r\n];\r\nlist = list.filter(update);\r\nconsole.log(list);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ { id: 1002, name: 'Kora' } ]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function average(list){\r\n    let result = list.reduce((a, b) => a + b) / list.length;\r\n    return result\r\n}\r\nconsole.log(average([1,2,3,4,5]));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "3",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function evaluate(number){\r\n    if (number>100){\r\n        return 'greater than 100';\r\n    }\r\n    else if (number<100){\r\n        return 'less than 100';\r\n    }\r\n    else{\r\n        return 'equal to 100';\r\n    }\r\n}\r\nconsole.log(evaluate(10));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "less than 100",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Data types\n\n* `value` \n* `string`: can be written inside of `\"` or `'`\n* `boolean` can be `true` or `false` it is usually the *comparation result* like `5 > 8`\n  * `===` compare the equality,  `!==`, compare the not equal. The remaining are the inequality operation:`<`,`<=`, `>=`, `>`.\n  * This is very useful in the `if else statement`. \n    ```\n    if (statement) { \n      this branch run if the statement is true\n    }\n    else {\n      this branch run if the statement is false\n    }\n    ```\n  * and in the `multiple if else stament`. The first time where the statement is matched the branch is runned, otherwise, the else branch is runned.\n    ```\n    if (statement) { \n      ...\n    }\n    else if (statement) {\n      ...\n    }\n    else if (statement) {\n      ...\n    }\n    else {\n      ...\n    }\n    ``` "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Dates\r\n JavaScript will use the browser's time zone and display a date as a full text string"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// current date\r\nconst dateNow = new Date()\r\nconsole.log(dateNow)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "2022-08-03T17:34:47.471Z",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "We can pass the arguments in `Date(...)`:\r\n\r\n* year, month, day, hour, minute, second, millisecond\r\n> JavaScript counts months from 0 to 11. January = 0. December = 11."
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// Merry Christmas\r\nconst dateSet = new Date(2019, 11, 24, 23, 59, 59, 0);\r\nconsole.log(dateSet)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "2019-12-25T04:59:59.000Z",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Not all arguments are necessary [min 3 (year, month, day)]. Also we can do some operations with dates.\r\n\r\nThe format of the return of the operations by default is `milliseconds`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const dateSet_lag = new Date(2019, 11, 20);\r\nconst dateSet= new Date(2020, 11, 19);\r\n// Each day has 86400000 (1000*60*60*24) milliseconds\r\nconsole.log((dateSet - dateSet_lag)/(1000*60*60*24))"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "365",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "We can pass `milliseconds` in the `Date(...)`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "// zero set 1970-01-01 00:00:00\r\nconst dateSetLagDay = new Date(0)\r\n// zero set 1970-01-01 00:00:00 + 1 day (= 86400000) milliseconds\r\nconst dateSet = new Date(86400000)\r\nconsole.log((dateSet - dateSetLagDay)/86400000, 'Day')"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "1 Day",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const dateSetLagDay = new Date(401800000)\r\nconsole.log(dateSetLagDay)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "1970-01-05T15:36:40.000Z",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const dateSet = new Date(\"October 13, 2014 12:56:00\");\r\nconsole.log(dateSet)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "2014-10-13T17:56:00.000Z",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#### Methods and properties"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const dateSet = new Date(2020, 11, 31, 0, 0, 0, 0);\r\nconsole.log(dateSet.toDateString())"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Thu Dec 31 2020",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(dateSet.toLocaleDateString())"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "31/12/2020",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "Applications: greeting"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function greet (){\r\n    \r\n    let today = new Date();\r\n    let hourNow = today.getHours();\r\n    let greeting;\r\n\r\n    if (hourNow > 18) {\r\n        greeting = 'Good evening!';\r\n    }\r\n    else if (hourNow > 12) {\r\n        greeting = 'Good afternoon!';\r\n    }\r\n    else if (hourNow > 0) {\r\n        greeting = 'Good morning!';\r\n    }\r\n    else {\r\n        greeting = 'Welcome!';\r\n    }\r\n    console.log(greeting)\r\n}\r\ngreet()"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Good afternoon!",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Object and Elements\n\n`document.getElementById('go-text');`\n* `document` is the object that represent the entire web page\n* `.` dot member operator\n* `getElementById('go-text')` is called method"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "python",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "* `let element = document.createElement('div')`. Make an `div` element in the document and assing to variable `element`.\n* `element.innerText = todo`. Inside the variable `element` we add inner text the value of `todo`.\n* `document.getElementById('main').appendChild(element);`. localize the element with Id `main` and append a child element, thta we have made. "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "python",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "%%HTML\r\n<html lang=\"en\">\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Document</title>\r\n    </head>\r\n    <body>\r\n        <div id=\"main\">\r\n            <div id=\"root\">\r\n                Some text\r\n            </div>\r\n        </div>\r\n        <script>\r\n            let todo1 = 'Get grosseries';\r\n            let element = document.createElement('div');\r\n            element.innerText = todo1;\r\n            document.getElementById('root').appendChild(element);\r\n        </script>    \r\n    </body>\r\n</html>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<html lang=\"en\">",
+                                "    <head>",
+                                "        <meta charset=\"UTF-8\">",
+                                "        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+                                "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+                                "        <title>Document</title>",
+                                "    </head>",
+                                "    <body>",
+                                "        <div id=\"main\">",
+                                "            <div id=\"root\">",
+                                "                Some text",
+                                "            </div>",
+                                "        </div>",
+                                "        <script>",
+                                "            let todo1 = 'Get grosseries';",
+                                "            let element = document.createElement('div');",
+                                "            element.innerText = todo1;",
+                                "            document.getElementById('root').appendChild(element);",
+                                "        </script>    ",
+                                "    </body>",
+                                "</html>",
+                                ""
+                            ]
+                        },
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "<IPython.core.display.HTML object>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}
